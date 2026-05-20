@@ -850,14 +850,14 @@ html = r'''
             <h1>🎉 Happy 3rd Anniversary, Kstudio! 🎉</h1>
             <div class="subtitle">
                 Congratulations on <span class="highlight">3 inspiring years</span> of building stronger bodies,
-                stronger minds, and a beautiful fitness family. Thank you Coach Konea, Coach Nea and Coach Juno for being our beloved trainers. 
-                Kstudio is definitely a place of growth, encouragement, and countless personal victories for us everyday 💪✨
+                stronger minds, and a beautiful fitness family. Thank you for being my beloved gym —
+                a place of growth, encouragement, and countless personal victories. 💪✨
             </div>
         </div>
 
         <div class="gym-area">
             <div class="badge">3 YEARS STRONG</div>
-            <div class="gym-sign">KSTUDIO - Riverson, KK City</div>
+            <div class="gym-sign">KSTUDIO GYM</div>
 
             <div class="window left"></div>
             <div class="window right"></div>
@@ -884,7 +884,7 @@ html = r'''
                 <div class="bench-leg l2"></div>
             </div>
 
-            
+            <div class="speech">“Thank you, Kstudio, for every sweat, smile & stronger version of me!”</div>
 
             <div class="dancer">
                 <div class="d-head"></div>
@@ -924,7 +924,7 @@ html = r'''
 
         <div class="footer-message">
             <span class="typed">
-                Wishing Kstudio many more years of success, transformation, friendship, and memories.- from syafa❤️
+                Wishing Kstudio many more years of success, transformation, friendship, and powerful gym memories. ❤️
             </span>
         </div>
     </div>
