@@ -811,303 +811,142 @@ html = r'''
         z-index: 2;
         width: min(1180px, 98vw);
         margin-top: 22px;
-        display: flex;
-        gap: 18px;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
         align-items: stretch;
         justify-content: center;
     }
 
     .mini-panel {
         position: relative;
-        flex: 1 1 0;
-        min-height: 340px;
+        min-height: 270px;
         border: 6px solid rgba(255,255,255,.95);
         background:
-            linear-gradient(to bottom, rgba(77, 42, 120, .95) 0 66%, rgba(35, 20, 57, .95) 66% 100%);
+            linear-gradient(to bottom, rgba(77, 42, 120, .96) 0 68%, rgba(35, 20, 57, .96) 68% 100%);
         box-shadow:
-            0 18px 60px rgba(0,0,0,.45),
-            inset 0 0 0 6px rgba(255, 209, 102, .24);
+            0 18px 60px rgba(0,0,0,.40),
+            inset 0 0 0 6px rgba(255, 209, 102, .22);
         overflow: hidden;
         image-rendering: pixelated;
-    }
-
-    .mini-panel .floor-grid {
-        inset: 71% 0 0 0;
-        background-size: 32px 24px;
-    }
-
-    .mini-panel .gym-sign {
-        top: 18px;
-        padding: 8px 12px;
-        font-size: 18px;
-        letter-spacing: 3px;
-    }
-
-    .mini-panel .badge {
-        top: 12px;
-        right: 12px;
-        padding: 7px 10px;
-        border-width: 3px;
-        font-size: 13px;
-        box-shadow: 4px 4px 0 rgba(0,0,0,.25);
-    }
-
-    .mini-panel .window {
-        top: 78px;
-        width: 96px;
-        height: 74px;
-        border-width: 4px;
-        box-shadow: inset 0 0 0 4px rgba(255,255,255,.18);
-    }
-
-    .mini-panel .window.left { left: 16px; }
-    .mini-panel .window.right { right: 16px; }
-
-    .left-panel .rack {
-        left: 8px;
-        bottom: 18px;
-        transform: scale(.56);
-        transform-origin: bottom left;
-    }
-
-    .left-panel .bench {
-        left: auto;
-        right: -10px;
-        bottom: 18px;
-        transform: scale(.58);
-        transform-origin: bottom right;
-    }
-
-    .right-panel .treadmill {
-        left: 10px;
-        right: auto;
-        bottom: 18px;
-        transform: scale(.60);
-        transform-origin: bottom left;
-    }
-
-    .right-panel .runner {
-        left: 58px;
-        right: auto;
-        bottom: 64px;
-        transform: scale(.60);
-        transform-origin: bottom left;
-    }
-
-    .right-panel .corner {
-        right: -10px;
-        bottom: 18px;
-        transform: scale(.56);
-        transform-origin: bottom right;
-    }
-
-    .right-panel .speech {
-        top: 82px;
-        left: auto;
-        right: 14px;
-        width: 178px;
-        padding: 9px;
-        font-size: 12px;
-        line-height: 1.35;
-    }
-
-    .right-panel .speech::after {
-        left: 112px;
-        border-left: 14px solid transparent;
-        border-right: 14px solid transparent;
-        border-top: 16px solid white;
-        bottom: -16px;
-    }
-
-    .right-panel .dancer {
-        left: 50%;
-        bottom: 126px;
-        margin-left: -42px;
-        transform: scale(.74);
-        transform-origin: bottom center;
-    }
-
-    .game-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-        margin-bottom: 10px;
-        flex-wrap: wrap;
-    }
-
-    .game-title-tag {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 8px 12px;
-        border: 3px solid rgba(255,255,255,.95);
-        background: linear-gradient(180deg, #ff9ad0, #ff7eb6);
-        color: #2a1238;
-        font-weight: 900;
-        font-size: clamp(12px, 1.3vw, 16px);
-        letter-spacing: 1.5px;
-        text-transform: uppercase;
-        box-shadow: 5px 5px 0 rgba(0,0,0,.22);
-    }
-
-    .pixel-hearts {
-        display: inline-flex;
-        gap: 6px;
-        font-size: 18px;
-        filter: drop-shadow(0 0 4px rgba(255,255,255,.18));
-    }
-
-    .game-stats {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-        flex-wrap: wrap;
-        margin: 12px 0 10px;
-    }
-
-    .stat-pill {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 8px 12px;
-        background: rgba(255,255,255,.09);
-        border: 3px solid rgba(255,255,255,.88);
-        color: var(--cream);
-        font-size: clamp(12px, 1.25vw, 15px);
-        font-weight: 800;
-        box-shadow: 4px 4px 0 rgba(0,0,0,.18);
-    }
-
-    .stat-pill .value {
-        color: var(--gold);
-    }
-
-    .xp-wrap {
-        width: min(760px, 92%);
-        margin: 12px auto 14px;
-        text-align: left;
-    }
-
-    .xp-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 6px;
-        color: var(--cream);
-        font-size: clamp(12px, 1.2vw, 15px);
-        font-weight: 800;
-        letter-spacing: 1px;
-    }
-
-    .xp-bar {
-        position: relative;
-        width: 100%;
-        height: 22px;
-        border: 3px solid rgba(255,255,255,.92);
-        background: rgba(255,255,255,.09);
-        overflow: hidden;
-        box-shadow: inset 0 0 0 3px rgba(0,0,0,.15);
-    }
-
-    .xp-fill {
-        position: absolute;
-        inset: 0 auto 0 0;
-        width: 96%;
-        background: linear-gradient(90deg, #72e6ff, #7dff9b, #ffd166);
-        animation: xpGlow 2s infinite steps(4);
-    }
-
-    @keyframes xpGlow {
-        0%, 100% { filter: brightness(.95); }
-        50% { filter: brightness(1.1); }
-    }
-
-    .achievement-card {
-        margin: 14px auto 0;
-        width: min(840px, 95%);
-        padding: 12px 14px;
-        border: 4px solid rgba(255,255,255,.95);
-        background: rgba(255,255,255,.07);
-        box-shadow: 6px 6px 0 rgba(0,0,0,.22);
-    }
-
-    .achievement-label {
-        display: inline-block;
-        margin-bottom: 8px;
-        padding: 6px 10px;
-        background: var(--gold);
-        color: #2a1238;
-        font-size: 12px;
-        font-weight: 900;
-        letter-spacing: 2px;
-    }
-
-    .achievement-text {
-        font-size: clamp(14px, 1.45vw, 18px);
-        line-height: 1.5;
-        color: rgba(255,255,255,.97);
     }
 
     .mini-panel::before {
         content: "";
         position: absolute;
         inset: 10px;
-        border: 2px dashed rgba(255,255,255,.18);
+        border: 2px dashed rgba(255,255,255,.16);
         pointer-events: none;
+    }
+
+    .mini-panel .floor-grid {
+        inset: 76% 0 0 0;
+        background-size: 28px 20px;
+    }
+
+    .mini-panel .window {
+        top: 76px;
+        width: 78px;
+        height: 60px;
+        border-width: 4px;
+        box-shadow: inset 0 0 0 4px rgba(255,255,255,.16);
+    }
+
+    .mini-panel .window.left { left: 14px; }
+    .mini-panel .window.right { right: 14px; }
+
+    .mini-panel .gym-sign {
+        top: 18px;
+        padding: 7px 12px;
+        font-size: 16px;
+        letter-spacing: 2px;
+    }
+
+    .mini-panel .badge {
+        top: 12px;
+        right: 12px;
+        padding: 6px 9px;
+        border-width: 3px;
+        font-size: 12px;
+        box-shadow: 4px 4px 0 rgba(0,0,0,.22);
     }
 
     .panel-stage {
         position: absolute;
-        left: 14px;
+        left: 12px;
         top: 12px;
         z-index: 5;
-        padding: 6px 10px;
+        padding: 6px 9px;
         border: 3px solid rgba(255,255,255,.95);
         background: linear-gradient(180deg, #72e6ff, #62c7e0);
         color: #231132;
-        font-size: 12px;
+        font-size: 11px;
         font-weight: 900;
         letter-spacing: 1px;
         box-shadow: 4px 4px 0 rgba(0,0,0,.22);
     }
 
-    .card-footer-tag {
-        position: relative;
-        display: inline-block;
-        margin-top: 2px;
-        margin-bottom: 10px;
-        padding: 6px 12px;
-        background: linear-gradient(180deg, #b690ff, #8d65e8);
-        border: 3px solid rgba(255,255,255,.95);
-        color: white;
-        font-weight: 900;
-        font-size: 13px;
-        letter-spacing: 1px;
-        box-shadow: 5px 5px 0 rgba(0,0,0,.2);
+    .pump-panel .rack {
+        left: 50%;
+        bottom: 18px;
+        transform: translateX(-50%) scale(.64);
+        transform-origin: bottom center;
     }
 
-    @media (max-width: 980px) {
+    .survive-panel .bench {
+        left: 50%;
+        bottom: 18px;
+        transform: translateX(-50%) scale(.66);
+        transform-origin: bottom center;
+    }
+
+    .chase-panel .treadmill {
+        left: 50%;
+        right: auto;
+        bottom: 18px;
+        transform: translateX(-56%) scale(.64);
+        transform-origin: bottom center;
+    }
+
+    .chase-panel .runner {
+        left: 50%;
+        right: auto;
+        bottom: 62px;
+        transform: translateX(-28%) scale(.64);
+        transform-origin: bottom center;
+    }
+
+
+@media (max-width: 980px) {
         .miniatures-row {
             width: 97vw;
-            gap: 14px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
         }
 
         .mini-panel {
-            min-height: 315px;
+            min-height: 245px;
         }
 
         .mini-panel .window.right {
             display: none;
         }
 
-        .right-panel .speech {
-            width: 160px;
-            font-size: 11px;
+        .pump-panel .rack {
+            transform: translateX(-50%) scale(.54);
         }
 
-        .right-panel .speech::after {
-            left: 96px;
+        .survive-panel .bench {
+            transform: translateX(-50%) scale(.56);
+        }
+
+        .chase-panel .treadmill {
+            transform: translateX(-56%) scale(.55);
+        }
+
+        .chase-panel .runner {
+            transform: translateX(-28%) scale(.55);
+            bottom: 56px;
         }
     }
 
@@ -1120,14 +959,8 @@ html = r'''
             padding: 18px 10px 26px;
         }
 
-        .top-card,
-        .footer-message {
+        .top-card {
             width: 97vw;
-        }
-
-        .mini-label {
-            line-height: 1.35;
-            letter-spacing: 1.5px;
         }
 
         .game-header {
@@ -1175,6 +1008,11 @@ html = r'''
             line-height: 1.5;
         }
 
+        .mini-label {
+            line-height: 1.35;
+            letter-spacing: 1.5px;
+        }
+
         h1 {
             font-size: clamp(31px, 8.3vw, 44px);
             line-height: 1.08;
@@ -1183,100 +1021,72 @@ html = r'''
                 6px 6px 0 rgba(0,0,0,.35);
         }
 
-        .subtitle,
-        .footer-message {
+        .subtitle {
             font-size: 15px;
             line-height: 1.55;
         }
 
         .miniatures-row {
             width: 97vw;
-            flex-direction: column;
-            gap: 14px;
+            grid-template-columns: 1fr;
+            gap: 12px;
             margin-top: 18px;
         }
 
         .mini-panel {
-            min-height: 282px;
+            min-height: 220px;
             border-width: 5px;
         }
 
         .mini-panel .badge {
-            top: 10px;
-            right: 10px;
-            font-size: 12px;
-            padding: 6px 9px;
+            top: 9px;
+            right: 9px;
+            font-size: 11px;
+            padding: 5px 8px;
+        }
+
+        .panel-stage {
+            top: 9px;
+            left: 9px;
+            font-size: 10px;
+            padding: 5px 8px;
         }
 
         .mini-panel .gym-sign {
-            top: 16px;
-            font-size: 17px;
+            top: 15px;
+            font-size: 15px;
             letter-spacing: 2px;
             max-width: 72%;
         }
 
         .mini-panel .window {
-            top: 72px;
-            width: 84px;
-            height: 64px;
+            top: 67px;
+            width: 72px;
+            height: 56px;
         }
 
         .mini-panel .window.right {
             display: none;
         }
 
-        .left-panel .rack {
-            transform: scale(.48);
-            left: 2px;
+        .pump-panel .rack {
+            transform: translateX(-50%) scale(.52);
             bottom: 10px;
         }
 
-        .left-panel .bench {
-            transform: scale(.50);
-            right: -24px;
+        .survive-panel .bench {
+            transform: translateX(-50%) scale(.52);
             bottom: 10px;
         }
 
-        .right-panel .treadmill {
-            transform: scale(.52);
-            left: 2px;
-            bottom: 8px;
-        }
-
-        .right-panel .runner {
-            transform: scale(.52);
-            left: 40px;
-            bottom: 46px;
-        }
-
-        .right-panel .corner {
-            transform: scale(.48);
-            right: -20px;
+        .chase-panel .treadmill {
+            transform: translateX(-56%) scale(.51);
             bottom: 10px;
         }
 
-        .right-panel .dancer {
-            transform: scale(.62);
-            bottom: 106px;
-            margin-left: -38px;
-        }
-
-        .right-panel .speech {
-            top: 74px;
-            right: 10px;
-            width: 150px;
-            font-size: 10.5px;
-            padding: 8px;
-        }
-
-        .right-panel .speech::after {
-            left: 92px;
-        }
-
-        .typed {
-            white-space: normal;
-            border-right: none;
-            animation: none;
+        .chase-panel .runner {
+            transform: translateX(-28%) scale(.51);
+            bottom: 48px;
         }
     }
 </style>
@@ -1288,37 +1098,23 @@ html = r'''
         <div class="hearts" id="hearts"></div>
 
         <div class="top-card">
-            <div class="game-header">
-                <div class="game-title-tag">🎮 Celebration Mode</div>
-                <div class="pixel-hearts">💗 💛 ✨</div>
-            </div>
             <div class="mini-label">A celebration of strength, discipline & community</div>
             <h1>🎉 Happy 3rd Anniversary, Kstudio! 🎉</h1>
-
-            <div class="game-stats">
-                <div class="stat-pill">🏆 <span>Player:</span> <span class="value">Kstudio</span></div>
-                <div class="stat-pill">⭐ <span>Level:</span> <span class="value">03</span></div>
-                <div class="stat-pill">💪 <span>Mission:</span> <span class="value">Keep Inspiring</span></div>
-            </div>
-            <div class="achievement-card">
-                <div class="achievement-label">ACHIEVEMENT UNLOCKED</div>
-                <div class="achievement-text">
-                    Congratulations on <span class="highlight">3 inspiring years</span> of building stronger bodies,
-                    stronger minds, and a beautiful fitness family. Thank you for being my beloved gym —
-                    a place of growth, encouragement, and countless personal victories. 💪✨
-                </div>
+            <div class="subtitle">
+                Congratulations on <span class="highlight">3 inspiring years</span> of building stronger bodies,
+                stronger minds, and a beautiful fitness family. Thank you for being my beloved gym —
+                a place of growth, encouragement, and countless personal victories. 💪✨
             </div>
         </div>
 
         <div class="miniatures-row">
-            <div class="mini-panel left-panel">
+            <div class="mini-panel pump-panel">
                 <div class="panel-stage">STAGE 1</div>
                 <div class="badge">PUMP</div>
                 <div class="gym-sign">KSTUDIO</div>
 
                 <div class="window left"></div>
                 <div class="window right"></div>
-
                 <div class="floor-grid"></div>
 
                 <div class="equipment rack">
@@ -1329,38 +1125,16 @@ html = r'''
                     <div class="db d2"><span></span></div>
                     <div class="db d3"><span></span></div>
                 </div>
-
-                <div class="equipment bench">
-                    <div class="stand sleft"></div>
-                    <div class="stand sright"></div>
-                    <div class="bar"></div>
-                    <div class="plate left"></div>
-                    <div class="plate right"></div>
-                    <div class="bench-seat"></div>
-                    <div class="bench-leg l1"></div>
-                    <div class="bench-leg l2"></div>
-                </div>
             </div>
 
-            <div class="miniatures-row">
-            <div class="mini-panel left-panel">
+            <div class="mini-panel survive-panel">
                 <div class="panel-stage">STAGE 2</div>
                 <div class="badge">SURVIVE</div>
                 <div class="gym-sign">KSTUDIO</div>
 
                 <div class="window left"></div>
                 <div class="window right"></div>
-
                 <div class="floor-grid"></div>
-
-                <div class="equipment rack">
-                    <div class="rack-frame"></div>
-                    <div class="rack-shelf s1"></div>
-                    <div class="rack-shelf s2"></div>
-                    <div class="db d1"><span></span></div>
-                    <div class="db d2"><span></span></div>
-                    <div class="db d3"><span></span></div>
-                </div>
 
                 <div class="equipment bench">
                     <div class="stand sleft"></div>
@@ -1374,17 +1148,14 @@ html = r'''
                 </div>
             </div>
 
-            <div class="mini-panel right-panel">
+            <div class="mini-panel chase-panel">
                 <div class="panel-stage">STAGE 3</div>
                 <div class="badge">CHASE</div>
                 <div class="gym-sign">KSTUDIO</div>
 
                 <div class="window left"></div>
                 <div class="window right"></div>
-
                 <div class="floor-grid"></div>
-
-                <div class="speech">“Thank you, Kstudio, for every sweat, smile & stronger version of me!”</div>
 
                 <div class="equipment treadmill">
                     <div class="tm-base"><div class="belt"></div></div>
@@ -1401,13 +1172,6 @@ html = r'''
                     <div class="leg l2"></div>
                 </div>
             </div>
-        </div>
-
-        <div class="footer-message">
-            <div class="card-footer-tag">BONUS MESSAGE</div><br>
-            <span class="typed">
-                Wishing Kstudio many more years of success, transformation, friendship, and powerful gym memories. ❤️
-            </span>
         </div>
     </div>
 
@@ -1452,4 +1216,4 @@ html = r'''
 </html>
 '''
 
-components.html(html, height=1180, scrolling=False)
+components.html(html, height=980, scrolling=False)
