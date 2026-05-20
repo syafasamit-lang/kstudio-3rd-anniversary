@@ -806,31 +806,268 @@ html = r'''
         50% { transform: rotate(-4deg); }
     }
 
+    .miniatures-row {
+        position: relative;
+        z-index: 2;
+        width: min(1180px, 98vw);
+        margin-top: 22px;
+        display: flex;
+        gap: 18px;
+        align-items: stretch;
+        justify-content: center;
+    }
+
+    .mini-panel {
+        position: relative;
+        flex: 1 1 0;
+        min-height: 340px;
+        border: 6px solid rgba(255,255,255,.95);
+        background:
+            linear-gradient(to bottom, rgba(77, 42, 120, .95) 0 66%, rgba(35, 20, 57, .95) 66% 100%);
+        box-shadow:
+            0 18px 60px rgba(0,0,0,.45),
+            inset 0 0 0 6px rgba(255, 209, 102, .24);
+        overflow: hidden;
+        image-rendering: pixelated;
+    }
+
+    .mini-panel .floor-grid {
+        inset: 71% 0 0 0;
+        background-size: 32px 24px;
+    }
+
+    .mini-panel .gym-sign {
+        top: 18px;
+        padding: 8px 12px;
+        font-size: 18px;
+        letter-spacing: 3px;
+    }
+
+    .mini-panel .badge {
+        top: 12px;
+        right: 12px;
+        padding: 7px 10px;
+        border-width: 3px;
+        font-size: 13px;
+        box-shadow: 4px 4px 0 rgba(0,0,0,.25);
+    }
+
+    .mini-panel .window {
+        top: 78px;
+        width: 96px;
+        height: 74px;
+        border-width: 4px;
+        box-shadow: inset 0 0 0 4px rgba(255,255,255,.18);
+    }
+
+    .mini-panel .window.left { left: 16px; }
+    .mini-panel .window.right { right: 16px; }
+
+    .left-panel .rack {
+        left: 8px;
+        bottom: 18px;
+        transform: scale(.56);
+        transform-origin: bottom left;
+    }
+
+    .left-panel .bench {
+        left: auto;
+        right: -10px;
+        bottom: 18px;
+        transform: scale(.58);
+        transform-origin: bottom right;
+    }
+
+    .right-panel .treadmill {
+        left: 10px;
+        right: auto;
+        bottom: 18px;
+        transform: scale(.60);
+        transform-origin: bottom left;
+    }
+
+    .right-panel .runner {
+        left: 58px;
+        right: auto;
+        bottom: 64px;
+        transform: scale(.60);
+        transform-origin: bottom left;
+    }
+
+    .right-panel .corner {
+        right: -10px;
+        bottom: 18px;
+        transform: scale(.56);
+        transform-origin: bottom right;
+    }
+
+    .right-panel .speech {
+        top: 82px;
+        left: auto;
+        right: 14px;
+        width: 178px;
+        padding: 9px;
+        font-size: 12px;
+        line-height: 1.35;
+    }
+
+    .right-panel .speech::after {
+        left: 112px;
+        border-left: 14px solid transparent;
+        border-right: 14px solid transparent;
+        border-top: 16px solid white;
+        bottom: -16px;
+    }
+
+    .right-panel .dancer {
+        left: 50%;
+        bottom: 126px;
+        margin-left: -42px;
+        transform: scale(.74);
+        transform-origin: bottom center;
+    }
+
     @media (max-width: 980px) {
-        .gym-area { height: 560px; }
-        .window.right { display: none; }
-        .rack { transform: scale(.82); transform-origin: bottom left; left: 18px; }
-        .bench { transform: scale(.80); transform-origin: bottom left; left: 205px; }
-        .dancer { left: 448px; transform: scale(.85); transform-origin: bottom left; }
-        .speech { left: 402px; top: 150px; width: 220px; }
-        .treadmill { right: 165px; transform: scale(.82); transform-origin: bottom right; }
-        .runner { right: 230px; transform: scale(.82); transform-origin: bottom right; }
-        .corner { right: 10px; transform: scale(.82); transform-origin: bottom right; }
+        .miniatures-row {
+            width: 97vw;
+            gap: 14px;
+        }
+
+        .mini-panel {
+            min-height: 315px;
+        }
+
+        .mini-panel .window.right {
+            display: none;
+        }
+
+        .right-panel .speech {
+            width: 160px;
+            font-size: 11px;
+        }
+
+        .right-panel .speech::after {
+            left: 96px;
+        }
     }
 
     @media (max-width: 720px) {
         body { overflow-y: auto; }
-        .scene { min-height: 100vh; height: auto; padding-bottom: 30px; }
-        .gym-area { height: 720px; }
-        .badge { position: relative; top: auto; right: auto; margin: 12px auto 0; width: fit-content; }
-        .window.left { left: 24px; width: 130px; }
-        .rack { left: 15px; bottom: 425px; }
-        .bench { left: 180px; bottom: 425px; }
-        .dancer { left: 70px; bottom: 220px; }
-        .speech { left: 35px; top: 300px; }
-        .treadmill { right: 88px; bottom: 90px; }
-        .runner { right: 148px; bottom: 144px; }
-        .corner { right: 8px; bottom: 285px; }
+
+        .scene {
+            min-height: 100vh;
+            height: auto;
+            padding: 18px 10px 26px;
+        }
+
+        .top-card,
+        .footer-message {
+            width: 97vw;
+        }
+
+        .mini-label {
+            line-height: 1.35;
+            letter-spacing: 1.5px;
+        }
+
+        h1 {
+            font-size: clamp(31px, 8.3vw, 44px);
+            line-height: 1.08;
+            text-shadow:
+                3px 3px 0 #63247d,
+                6px 6px 0 rgba(0,0,0,.35);
+        }
+
+        .subtitle,
+        .footer-message {
+            font-size: 15px;
+            line-height: 1.55;
+        }
+
+        .miniatures-row {
+            width: 97vw;
+            flex-direction: column;
+            gap: 14px;
+            margin-top: 18px;
+        }
+
+        .mini-panel {
+            min-height: 282px;
+            border-width: 5px;
+        }
+
+        .mini-panel .badge {
+            top: 10px;
+            right: 10px;
+            font-size: 12px;
+            padding: 6px 9px;
+        }
+
+        .mini-panel .gym-sign {
+            top: 16px;
+            font-size: 17px;
+            letter-spacing: 2px;
+            max-width: 72%;
+        }
+
+        .mini-panel .window {
+            top: 72px;
+            width: 84px;
+            height: 64px;
+        }
+
+        .mini-panel .window.right {
+            display: none;
+        }
+
+        .left-panel .rack {
+            transform: scale(.48);
+            left: 2px;
+            bottom: 10px;
+        }
+
+        .left-panel .bench {
+            transform: scale(.50);
+            right: -24px;
+            bottom: 10px;
+        }
+
+        .right-panel .treadmill {
+            transform: scale(.52);
+            left: 2px;
+            bottom: 8px;
+        }
+
+        .right-panel .runner {
+            transform: scale(.52);
+            left: 40px;
+            bottom: 46px;
+        }
+
+        .right-panel .corner {
+            transform: scale(.48);
+            right: -20px;
+            bottom: 10px;
+        }
+
+        .right-panel .dancer {
+            transform: scale(.62);
+            bottom: 106px;
+            margin-left: -38px;
+        }
+
+        .right-panel .speech {
+            top: 74px;
+            right: 10px;
+            width: 150px;
+            font-size: 10.5px;
+            padding: 8px;
+        }
+
+        .right-panel .speech::after {
+            left: 92px;
+        }
+
         .typed {
             white-space: normal;
             border-right: none;
@@ -855,69 +1092,81 @@ html = r'''
             </div>
         </div>
 
-        <div class="gym-area">
-            <div class="badge">3 YEARS STRONG</div>
-            <div class="gym-sign">KSTUDIO GYM</div>
+        <div class="miniatures-row">
+            <div class="mini-panel left-panel">
+                <div class="badge">LIFT ZONE</div>
+                <div class="gym-sign">KSTUDIO</div>
 
-            <div class="window left"></div>
-            <div class="window right"></div>
+                <div class="window left"></div>
+                <div class="window right"></div>
 
-            <div class="floor-grid"></div>
+                <div class="floor-grid"></div>
 
-            <div class="equipment rack">
-                <div class="rack-frame"></div>
-                <div class="rack-shelf s1"></div>
-                <div class="rack-shelf s2"></div>
-                <div class="db d1"><span></span></div>
-                <div class="db d2"><span></span></div>
-                <div class="db d3"><span></span></div>
+                <div class="equipment rack">
+                    <div class="rack-frame"></div>
+                    <div class="rack-shelf s1"></div>
+                    <div class="rack-shelf s2"></div>
+                    <div class="db d1"><span></span></div>
+                    <div class="db d2"><span></span></div>
+                    <div class="db d3"><span></span></div>
+                </div>
+
+                <div class="equipment bench">
+                    <div class="stand sleft"></div>
+                    <div class="stand sright"></div>
+                    <div class="bar"></div>
+                    <div class="plate left"></div>
+                    <div class="plate right"></div>
+                    <div class="bench-seat"></div>
+                    <div class="bench-leg l1"></div>
+                    <div class="bench-leg l2"></div>
+                </div>
             </div>
 
-            <div class="equipment bench">
-                <div class="stand sleft"></div>
-                <div class="stand sright"></div>
-                <div class="bar"></div>
-                <div class="plate left"></div>
-                <div class="plate right"></div>
-                <div class="bench-seat"></div>
-                <div class="bench-leg l1"></div>
-                <div class="bench-leg l2"></div>
-            </div>
+            <div class="mini-panel right-panel">
+                <div class="badge">FIT & FUN</div>
+                <div class="gym-sign">KSTUDIO</div>
 
-            <div class="speech">“Thank you, Kstudio, for every sweat, smile & stronger version of me!”</div>
+                <div class="window left"></div>
+                <div class="window right"></div>
 
-            <div class="dancer">
-                <div class="d-head"></div>
-                <div class="d-body"></div>
-                <div class="d-arm left"></div>
-                <div class="d-arm right"></div>
-                <div class="d-leg left"></div>
-                <div class="d-leg right"></div>
-            </div>
+                <div class="floor-grid"></div>
 
-            <div class="equipment treadmill">
-                <div class="tm-base"><div class="belt"></div></div>
-                <div class="tm-post"></div>
-                <div class="tm-console"></div>
-            </div>
+                <div class="speech">“Thank you, Kstudio, for every sweat, smile & stronger version of me!”</div>
 
-            <div class="runner">
-                <div class="head"></div>
-                <div class="body"></div>
-                <div class="arm a1"></div>
-                <div class="arm a2"></div>
-                <div class="leg l1"></div>
-                <div class="leg l2"></div>
-            </div>
+                <div class="dancer">
+                    <div class="d-head"></div>
+                    <div class="d-body"></div>
+                    <div class="d-arm left"></div>
+                    <div class="d-arm right"></div>
+                    <div class="d-leg left"></div>
+                    <div class="d-leg right"></div>
+                </div>
 
-            <div class="equipment corner">
-                <div class="mat"></div>
-                <div class="kettlebell"></div>
-                <div class="plant">
-                    <div class="leaf one"></div>
-                    <div class="leaf two"></div>
-                    <div class="leaf three"></div>
-                    <div class="pot"></div>
+                <div class="equipment treadmill">
+                    <div class="tm-base"><div class="belt"></div></div>
+                    <div class="tm-post"></div>
+                    <div class="tm-console"></div>
+                </div>
+
+                <div class="runner">
+                    <div class="head"></div>
+                    <div class="body"></div>
+                    <div class="arm a1"></div>
+                    <div class="arm a2"></div>
+                    <div class="leg l1"></div>
+                    <div class="leg l2"></div>
+                </div>
+
+                <div class="equipment corner">
+                    <div class="mat"></div>
+                    <div class="kettlebell"></div>
+                    <div class="plant">
+                        <div class="leaf one"></div>
+                        <div class="leaf two"></div>
+                        <div class="leaf three"></div>
+                        <div class="pot"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -970,4 +1219,4 @@ html = r'''
 </html>
 '''
 
-components.html(html, height=900, scrolling=False)
+components.html(html, height=1180, scrolling=False)
