@@ -1313,7 +1313,39 @@ html = r'''
         <div class="miniatures-row">
             <div class="mini-panel left-panel">
                 <div class="panel-stage">STAGE 1</div>
-                <div class="badge">LIFT ZONE</div>
+                <div class="badge">PUMP</div>
+                <div class="gym-sign">KSTUDIO</div>
+
+                <div class="window left"></div>
+                <div class="window right"></div>
+
+                <div class="floor-grid"></div>
+
+                <div class="equipment rack">
+                    <div class="rack-frame"></div>
+                    <div class="rack-shelf s1"></div>
+                    <div class="rack-shelf s2"></div>
+                    <div class="db d1"><span></span></div>
+                    <div class="db d2"><span></span></div>
+                    <div class="db d3"><span></span></div>
+                </div>
+
+                <div class="equipment bench">
+                    <div class="stand sleft"></div>
+                    <div class="stand sright"></div>
+                    <div class="bar"></div>
+                    <div class="plate left"></div>
+                    <div class="plate right"></div>
+                    <div class="bench-seat"></div>
+                    <div class="bench-leg l1"></div>
+                    <div class="bench-leg l2"></div>
+                </div>
+            </div>
+
+            <div class="miniatures-row">
+            <div class="mini-panel left-panel">
+                <div class="panel-stage">STAGE 2</div>
+                <div class="badge">SURVIVE</div>
                 <div class="gym-sign">KSTUDIO</div>
 
                 <div class="window left"></div>
@@ -1343,8 +1375,8 @@ html = r'''
             </div>
 
             <div class="mini-panel right-panel">
-                <div class="panel-stage">STAGE 2</div>
-                <div class="badge">FIT & FUN</div>
+                <div class="panel-stage">STAGE 3</div>
+                <div class="badge">CHASE</div>
                 <div class="gym-sign">KSTUDIO</div>
 
                 <div class="window left"></div>
