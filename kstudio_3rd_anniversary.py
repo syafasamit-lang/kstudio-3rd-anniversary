@@ -1176,8 +1176,8 @@ html = r'''
             <h1>🎉 Happy 3rd Anniversary, Kstudio! 🎉</h1>
             <div class="subtitle">
                 Congratulations on <span class="highlight">3 inspiring years</span> of building stronger bodies,
-                stronger minds, and a beautiful fitness family. Thank you for being my beloved gym —
-                a place of growth, encouragement, and countless personal victories. 💪✨
+                stronger minds, and a beautiful fitness family. Thank you to Coach Konea, Coach Nea and Coach Juno for being our beloved trainers.
+                Kstudio is definitely a place of growth, encouragement, and countless personal victories for us everyday. 💪✨
             </div>
         </div>
 
