@@ -1300,17 +1300,6 @@ html = r'''
                 <div class="stat-pill">⭐ <span>Level:</span> <span class="value">03</span></div>
                 <div class="stat-pill">💪 <span>Mission:</span> <span class="value">Keep Inspiring</span></div>
             </div>
-
-            <div class="xp-wrap">
-                <div class="xp-row">
-                    <span>ANNIVERSARY XP</span>
-                    <span>96/100</span>
-                </div>
-                <div class="xp-bar">
-                    <div class="xp-fill"></div>
-                </div>
-            </div>
-
             <div class="achievement-card">
                 <div class="achievement-label">ACHIEVEMENT UNLOCKED</div>
                 <div class="achievement-text">
