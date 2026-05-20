@@ -806,21 +806,21 @@ html = r'''
         50% { transform: rotate(-4deg); }
     }
 
-    .miniatures-row {
+    .stage-board {
         position: relative;
         z-index: 2;
         width: min(1180px, 98vw);
         margin-top: 22px;
         display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 16px;
+        grid-template-columns: minmax(0, 1fr) minmax(120px, .48fr) minmax(0, 1fr) minmax(120px, .48fr) minmax(0, 1fr);
+        gap: 14px;
         align-items: stretch;
         justify-content: center;
     }
 
-    .mini-panel {
+    .stage-card {
         position: relative;
-        min-height: 270px;
+        min-height: 260px;
         border: 6px solid rgba(255,255,255,.95);
         background:
             linear-gradient(to bottom, rgba(77, 42, 120, .96) 0 68%, rgba(35, 20, 57, .96) 68% 100%);
@@ -831,38 +831,39 @@ html = r'''
         image-rendering: pixelated;
     }
 
-    .mini-panel::before {
+    .stage-card::before,
+    .quest-card::before {
         content: "";
         position: absolute;
         inset: 10px;
-        border: 2px dashed rgba(255,255,255,.16);
+        border: 2px dashed rgba(255,255,255,.18);
         pointer-events: none;
     }
 
-    .mini-panel .floor-grid {
-        inset: 76% 0 0 0;
-        background-size: 28px 20px;
-    }
-
-    .mini-panel .window {
-        top: 76px;
+    .stage-card .window {
+        top: 74px;
         width: 78px;
         height: 60px;
         border-width: 4px;
         box-shadow: inset 0 0 0 4px rgba(255,255,255,.16);
     }
 
-    .mini-panel .window.left { left: 14px; }
-    .mini-panel .window.right { right: 14px; }
+    .stage-card .window.left { left: 14px; }
+    .stage-card .window.right { right: 14px; }
 
-    .mini-panel .gym-sign {
+    .stage-card .floor-grid {
+        inset: 76% 0 0 0;
+        background-size: 28px 20px;
+    }
+
+    .stage-card .gym-sign {
         top: 18px;
         padding: 7px 12px;
         font-size: 16px;
         letter-spacing: 2px;
     }
 
-    .mini-panel .badge {
+    .stage-card .badge {
         top: 12px;
         right: 12px;
         padding: 6px 9px;
@@ -886,67 +887,151 @@ html = r'''
         box-shadow: 4px 4px 0 rgba(0,0,0,.22);
     }
 
-    .pump-panel .rack {
+    .pump-card .rack {
         left: 50%;
-        bottom: 18px;
+        bottom: 16px;
+        transform: translateX(-50%) scale(.62);
+        transform-origin: bottom center;
+    }
+
+    .survive-card .bench {
+        left: 50%;
+        bottom: 16px;
         transform: translateX(-50%) scale(.64);
         transform-origin: bottom center;
     }
 
-    .survive-panel .bench {
-        left: 50%;
-        bottom: 18px;
-        transform: translateX(-50%) scale(.66);
-        transform-origin: bottom center;
-    }
-
-    .chase-panel .treadmill {
+    .chase-card .treadmill {
         left: 50%;
         right: auto;
-        bottom: 18px;
-        transform: translateX(-56%) scale(.64);
+        bottom: 14px;
+        transform: translateX(-56%) scale(.62);
         transform-origin: bottom center;
     }
 
-    .chase-panel .runner {
+    .chase-card .runner {
         left: 50%;
         right: auto;
-        bottom: 62px;
-        transform: translateX(-28%) scale(.64);
+        bottom: 58px;
+        transform: translateX(-28%) scale(.62);
         transform-origin: bottom center;
     }
 
+    .quest-card {
+        position: relative;
+        min-height: 260px;
+        border: 6px solid rgba(255,255,255,.95);
+        background: linear-gradient(180deg, rgba(255,126,182,.96), rgba(141,101,232,.96));
+        box-shadow:
+            0 16px 50px rgba(0,0,0,.34),
+            inset 0 0 0 6px rgba(255,255,255,.14);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 14px 10px;
+        image-rendering: pixelated;
+    }
 
-@media (max-width: 980px) {
-        .miniatures-row {
+    .quest-badge {
+        position: relative;
+        z-index: 2;
+        display: inline-block;
+        padding: 7px 9px;
+        background: var(--gold);
+        color: #241231;
+        border: 3px solid rgba(255,255,255,.95);
+        font-size: 11px;
+        font-weight: 900;
+        letter-spacing: 1px;
+        box-shadow: 4px 4px 0 rgba(0,0,0,.20);
+        margin-bottom: 10px;
+    }
+
+    .quest-icon {
+        position: relative;
+        z-index: 2;
+        font-size: 28px;
+        margin-bottom: 8px;
+        animation: questBounce 1.25s infinite steps(3);
+    }
+
+    @keyframes questBounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-6px); }
+    }
+
+    .quest-title {
+        position: relative;
+        z-index: 2;
+        color: white;
+        font-size: 14px;
+        font-weight: 900;
+        letter-spacing: 1px;
+        line-height: 1.25;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+    }
+
+    .quest-text {
+        position: relative;
+        z-index: 2;
+        color: rgba(255,255,255,.96);
+        font-size: 11px;
+        line-height: 1.45;
+        max-width: 118px;
+    }
+
+    @media (max-width: 980px) {
+        .stage-board {
             width: 97vw;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 12px;
+            grid-template-columns: minmax(0, 1fr) minmax(92px, .42fr) minmax(0, 1fr) minmax(92px, .42fr) minmax(0, 1fr);
+            gap: 10px;
         }
 
-        .mini-panel {
-            min-height: 245px;
+        .stage-card,
+        .quest-card {
+            min-height: 238px;
         }
 
-        .mini-panel .window.right {
+        .quest-card {
+            padding: 12px 8px;
+        }
+
+        .quest-icon {
+            font-size: 24px;
+        }
+
+        .quest-title {
+            font-size: 12px;
+        }
+
+        .quest-text {
+            font-size: 10px;
+            max-width: 92px;
+        }
+
+        .stage-card .window.right {
             display: none;
         }
 
-        .pump-panel .rack {
+        .pump-card .rack {
             transform: translateX(-50%) scale(.54);
         }
 
-        .survive-panel .bench {
+        .survive-card .bench {
             transform: translateX(-50%) scale(.56);
         }
 
-        .chase-panel .treadmill {
+        .chase-card .treadmill {
             transform: translateX(-56%) scale(.55);
         }
 
-        .chase-panel .runner {
+        .chase-card .runner {
             transform: translateX(-28%) scale(.55);
-            bottom: 56px;
+            bottom: 54px;
         }
     }
 
@@ -961,51 +1046,7 @@ html = r'''
 
         .top-card {
             width: 97vw;
-        }
-
-        .game-header {
-            justify-content: center;
-        }
-
-        .game-title-tag {
-            font-size: 12px;
-            padding: 7px 10px;
-        }
-
-        .pixel-hearts {
-            font-size: 16px;
-        }
-
-        .game-stats {
-            gap: 8px;
-        }
-
-        .stat-pill {
-            font-size: 11px;
-            padding: 7px 9px;
-        }
-
-        .xp-wrap {
-            width: 96%;
-        }
-
-        .xp-bar {
-            height: 18px;
-        }
-
-        .achievement-card {
-            width: 96%;
-            padding: 10px 10px;
-        }
-
-        .achievement-label {
-            font-size: 11px;
-            letter-spacing: 1.5px;
-        }
-
-        .achievement-text {
-            font-size: 14px;
-            line-height: 1.5;
+            padding: 16px 14px 18px;
         }
 
         .mini-label {
@@ -1026,19 +1067,25 @@ html = r'''
             line-height: 1.55;
         }
 
-        .miniatures-row {
+        .stage-board {
             width: 97vw;
             grid-template-columns: 1fr;
-            gap: 12px;
+            gap: 10px;
             margin-top: 18px;
         }
 
-        .mini-panel {
-            min-height: 220px;
+        .stage-card {
+            min-height: 214px;
             border-width: 5px;
         }
 
-        .mini-panel .badge {
+        .quest-card {
+            min-height: 112px;
+            border-width: 5px;
+            padding: 10px 10px;
+        }
+
+        .stage-card .badge {
             top: 9px;
             right: 9px;
             font-size: 11px;
@@ -1052,41 +1099,68 @@ html = r'''
             padding: 5px 8px;
         }
 
-        .mini-panel .gym-sign {
+        .stage-card .gym-sign {
             top: 15px;
             font-size: 15px;
             letter-spacing: 2px;
             max-width: 72%;
         }
 
-        .mini-panel .window {
+        .stage-card .window {
             top: 67px;
             width: 72px;
             height: 56px;
         }
 
-        .mini-panel .window.right {
+        .stage-card .window.right {
             display: none;
         }
 
-        .pump-panel .rack {
-            transform: translateX(-50%) scale(.52);
+        .quest-badge {
+            font-size: 10px;
+            padding: 5px 8px;
+            margin-bottom: 8px;
+        }
+
+        .quest-icon {
+            font-size: 22px;
+            margin-bottom: 4px;
+        }
+
+        .quest-title {
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+
+        .quest-text {
+            font-size: 10px;
+            max-width: 100%;
+        }
+
+        .pump-card .rack {
+            transform: translateX(-50%) scale(.51);
             bottom: 10px;
         }
 
-        .survive-panel .bench {
-            transform: translateX(-50%) scale(.52);
+        .survive-card .bench {
+            transform: translateX(-50%) scale(.51);
             bottom: 10px;
         }
 
-        .chase-panel .treadmill {
-            transform: translateX(-56%) scale(.51);
+        .chase-card .treadmill {
+            transform: translateX(-56%) scale(.50);
             bottom: 10px;
         }
 
-        .chase-panel .runner {
-            transform: translateX(-28%) scale(.51);
-            bottom: 48px;
+        .chase-card .runner {
+            transform: translateX(-28%) scale(.50);
+            bottom: 45px;
+        }
+
+        .typed {
+            white-space: normal;
+            border-right: none;
+            animation: none;
         }
     }
 </style>
@@ -1107,8 +1181,8 @@ html = r'''
             </div>
         </div>
 
-        <div class="miniatures-row">
-            <div class="mini-panel pump-panel">
+        <div class="stage-board">
+            <div class="stage-card pump-card">
                 <div class="panel-stage">STAGE 1</div>
                 <div class="badge">PUMP</div>
                 <div class="gym-sign">KSTUDIO</div>
@@ -1127,7 +1201,14 @@ html = r'''
                 </div>
             </div>
 
-            <div class="mini-panel survive-panel">
+            <div class="quest-card">
+                <div class="quest-badge">MINI QUEST</div>
+                <div class="quest-icon">🎯</div>
+                <div class="quest-title">Power Up</div>
+                <div class="quest-text">Complete your reps and unlock the next stage.</div>
+            </div>
+
+            <div class="stage-card survive-card">
                 <div class="panel-stage">STAGE 2</div>
                 <div class="badge">SURVIVE</div>
                 <div class="gym-sign">KSTUDIO</div>
@@ -1148,7 +1229,14 @@ html = r'''
                 </div>
             </div>
 
-            <div class="mini-panel chase-panel">
+            <div class="quest-card">
+                <div class="quest-badge">MINI QUEST</div>
+                <div class="quest-icon">⚡</div>
+                <div class="quest-title">Keep Going</div>
+                <div class="quest-text">Stay strong, survive the set, then chase the finish.</div>
+            </div>
+
+            <div class="stage-card chase-card">
                 <div class="panel-stage">STAGE 3</div>
                 <div class="badge">CHASE</div>
                 <div class="gym-sign">KSTUDIO</div>
@@ -1216,4 +1304,4 @@ html = r'''
 </html>
 '''
 
-components.html(html, height=980, scrolling=False)
+components.html(html, height=1120, scrolling=False)
