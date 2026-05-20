@@ -927,6 +927,166 @@ html = r'''
         transform-origin: bottom center;
     }
 
+    .game-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 10px;
+        flex-wrap: wrap;
+    }
+
+    .game-title-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        border: 3px solid rgba(255,255,255,.95);
+        background: linear-gradient(180deg, #ff9ad0, #ff7eb6);
+        color: #2a1238;
+        font-weight: 900;
+        font-size: clamp(12px, 1.3vw, 16px);
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        box-shadow: 5px 5px 0 rgba(0,0,0,.22);
+    }
+
+    .pixel-hearts {
+        display: inline-flex;
+        gap: 6px;
+        font-size: 18px;
+        filter: drop-shadow(0 0 4px rgba(255,255,255,.18));
+    }
+
+    .game-stats {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin: 12px 0 10px;
+    }
+
+    .stat-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        background: rgba(255,255,255,.09);
+        border: 3px solid rgba(255,255,255,.88);
+        color: var(--cream);
+        font-size: clamp(12px, 1.25vw, 15px);
+        font-weight: 800;
+        box-shadow: 4px 4px 0 rgba(0,0,0,.18);
+    }
+
+    .stat-pill .value {
+        color: var(--gold);
+    }
+
+    .xp-wrap {
+        width: min(760px, 92%);
+        margin: 12px auto 14px;
+        text-align: left;
+    }
+
+    .xp-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 6px;
+        color: var(--cream);
+        font-size: clamp(12px, 1.2vw, 15px);
+        font-weight: 800;
+        letter-spacing: 1px;
+    }
+
+    .xp-bar {
+        position: relative;
+        width: 100%;
+        height: 22px;
+        border: 3px solid rgba(255,255,255,.92);
+        background: rgba(255,255,255,.09);
+        overflow: hidden;
+        box-shadow: inset 0 0 0 3px rgba(0,0,0,.15);
+    }
+
+    .xp-fill {
+        position: absolute;
+        inset: 0 auto 0 0;
+        width: 96%;
+        background: linear-gradient(90deg, #72e6ff, #7dff9b, #ffd166);
+        animation: xpGlow 2s infinite steps(4);
+    }
+
+    @keyframes xpGlow {
+        0%, 100% { filter: brightness(.95); }
+        50% { filter: brightness(1.1); }
+    }
+
+    .achievement-card {
+        margin: 14px auto 0;
+        width: min(840px, 95%);
+        padding: 12px 14px;
+        border: 4px solid rgba(255,255,255,.95);
+        background: rgba(255,255,255,.07);
+        box-shadow: 6px 6px 0 rgba(0,0,0,.22);
+    }
+
+    .achievement-label {
+        display: inline-block;
+        margin-bottom: 8px;
+        padding: 6px 10px;
+        background: var(--gold);
+        color: #2a1238;
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: 2px;
+    }
+
+    .achievement-text {
+        font-size: clamp(14px, 1.45vw, 18px);
+        line-height: 1.5;
+        color: rgba(255,255,255,.97);
+    }
+
+    .mini-panel::before {
+        content: "";
+        position: absolute;
+        inset: 10px;
+        border: 2px dashed rgba(255,255,255,.18);
+        pointer-events: none;
+    }
+
+    .panel-stage {
+        position: absolute;
+        left: 14px;
+        top: 12px;
+        z-index: 5;
+        padding: 6px 10px;
+        border: 3px solid rgba(255,255,255,.95);
+        background: linear-gradient(180deg, #72e6ff, #62c7e0);
+        color: #231132;
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: 1px;
+        box-shadow: 4px 4px 0 rgba(0,0,0,.22);
+    }
+
+    .card-footer-tag {
+        position: relative;
+        display: inline-block;
+        margin-top: 2px;
+        margin-bottom: 10px;
+        padding: 6px 12px;
+        background: linear-gradient(180deg, #b690ff, #8d65e8);
+        border: 3px solid rgba(255,255,255,.95);
+        color: white;
+        font-weight: 900;
+        font-size: 13px;
+        letter-spacing: 1px;
+        box-shadow: 5px 5px 0 rgba(0,0,0,.2);
+    }
+
     @media (max-width: 980px) {
         .miniatures-row {
             width: 97vw;
@@ -968,6 +1128,51 @@ html = r'''
         .mini-label {
             line-height: 1.35;
             letter-spacing: 1.5px;
+        }
+
+        .game-header {
+            justify-content: center;
+        }
+
+        .game-title-tag {
+            font-size: 12px;
+            padding: 7px 10px;
+        }
+
+        .pixel-hearts {
+            font-size: 16px;
+        }
+
+        .game-stats {
+            gap: 8px;
+        }
+
+        .stat-pill {
+            font-size: 11px;
+            padding: 7px 9px;
+        }
+
+        .xp-wrap {
+            width: 96%;
+        }
+
+        .xp-bar {
+            height: 18px;
+        }
+
+        .achievement-card {
+            width: 96%;
+            padding: 10px 10px;
+        }
+
+        .achievement-label {
+            font-size: 11px;
+            letter-spacing: 1.5px;
+        }
+
+        .achievement-text {
+            font-size: 14px;
+            line-height: 1.5;
         }
 
         h1 {
@@ -1083,17 +1288,42 @@ html = r'''
         <div class="hearts" id="hearts"></div>
 
         <div class="top-card">
+            <div class="game-header">
+                <div class="game-title-tag">🎮 Celebration Mode</div>
+                <div class="pixel-hearts">💗 💛 ✨</div>
+            </div>
             <div class="mini-label">A celebration of strength, discipline & community</div>
             <h1>🎉 Happy 3rd Anniversary, Kstudio! 🎉</h1>
-            <div class="subtitle">
-                Congratulations on <span class="highlight">3 inspiring years</span> of building stronger bodies,
-                stronger minds, and a beautiful fitness family. Thank you for being my beloved gym —
-                a place of growth, encouragement, and countless personal victories. 💪✨
+
+            <div class="game-stats">
+                <div class="stat-pill">🏆 <span>Player:</span> <span class="value">Kstudio</span></div>
+                <div class="stat-pill">⭐ <span>Level:</span> <span class="value">03</span></div>
+                <div class="stat-pill">💪 <span>Mission:</span> <span class="value">Keep Inspiring</span></div>
+            </div>
+
+            <div class="xp-wrap">
+                <div class="xp-row">
+                    <span>ANNIVERSARY XP</span>
+                    <span>96/100</span>
+                </div>
+                <div class="xp-bar">
+                    <div class="xp-fill"></div>
+                </div>
+            </div>
+
+            <div class="achievement-card">
+                <div class="achievement-label">ACHIEVEMENT UNLOCKED</div>
+                <div class="achievement-text">
+                    Congratulations on <span class="highlight">3 inspiring years</span> of building stronger bodies,
+                    stronger minds, and a beautiful fitness family. Thank you for being my beloved gym —
+                    a place of growth, encouragement, and countless personal victories. 💪✨
+                </div>
             </div>
         </div>
 
         <div class="miniatures-row">
             <div class="mini-panel left-panel">
+                <div class="panel-stage">STAGE 1</div>
                 <div class="badge">LIFT ZONE</div>
                 <div class="gym-sign">KSTUDIO</div>
 
@@ -1124,6 +1354,7 @@ html = r'''
             </div>
 
             <div class="mini-panel right-panel">
+                <div class="panel-stage">STAGE 2</div>
                 <div class="badge">FIT & FUN</div>
                 <div class="gym-sign">KSTUDIO</div>
 
@@ -1172,6 +1403,7 @@ html = r'''
         </div>
 
         <div class="footer-message">
+            <div class="card-footer-tag">BONUS MESSAGE</div><br>
             <span class="typed">
                 Wishing Kstudio many more years of success, transformation, friendship, and powerful gym memories. ❤️
             </span>
