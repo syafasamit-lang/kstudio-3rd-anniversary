@@ -1365,15 +1365,6 @@ html = r'''
 
                 <div class="speech">“Thank you, Kstudio, for every sweat, smile & stronger version of me!”</div>
 
-                <div class="dancer">
-                    <div class="d-head"></div>
-                    <div class="d-body"></div>
-                    <div class="d-arm left"></div>
-                    <div class="d-arm right"></div>
-                    <div class="d-leg left"></div>
-                    <div class="d-leg right"></div>
-                </div>
-
                 <div class="equipment treadmill">
                     <div class="tm-base"><div class="belt"></div></div>
                     <div class="tm-post"></div>
@@ -1387,17 +1378,6 @@ html = r'''
                     <div class="arm a2"></div>
                     <div class="leg l1"></div>
                     <div class="leg l2"></div>
-                </div>
-
-                <div class="equipment corner">
-                    <div class="mat"></div>
-                    <div class="kettlebell"></div>
-                    <div class="plant">
-                        <div class="leaf one"></div>
-                        <div class="leaf two"></div>
-                        <div class="leaf three"></div>
-                        <div class="pot"></div>
-                    </div>
                 </div>
             </div>
         </div>
